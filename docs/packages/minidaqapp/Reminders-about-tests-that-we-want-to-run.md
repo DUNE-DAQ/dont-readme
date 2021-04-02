@@ -93,7 +93,7 @@
 
 
 * With the maximum number of links that can be handled in input, progressively increase the trigger rate and try to reach the disc throughput limit. (Done by Eric) ✔️ 
-    * I was able to run a test with 10 links, slowdown factor of 2, trigger rate of 8 Hz and window scale of 800x. This resulted in a steady state of trigger inhibits and ~650 MB/s to disk. Based on a rough calculation from the DataWriter "Processing trigger number" message, I was actually getting about 2 Hz.
+  * I was able to run a test with 10 links, slowdown factor of 2, trigger rate of 8 Hz and window scale of 800x. This resulted in a steady state of trigger inhibits and ~650 MB/s to disk. Based on a rough calculation from the DataWriter "Processing trigger number" message, I was actually getting about 2 Hz.
 
 
 * Include a varied number of links into the trigger decision. (Done by Giovanna) :heavy_check_mark:
@@ -112,7 +112,7 @@
 
 
 * Verify that the size of the Fragments are what is expected, given the requested readout window.
-    * Modulo the notes below, the large trigger window test had a trigger window width of 960,000 ticks and Fragment size of 17,823,240 bytes, which is the expected size from the trigger window plus 5568 bytes for 12 extra WIB frames
+  * Modulo the notes below, the large trigger window test had a trigger window width of 960,000 ticks and Fragment size of 17,823,240 bytes, which is the expected size from the trigger window plus 5568 bytes for 12 extra WIB frames
 
 ## Tests to wait until after the first version of the MiniDAQApp
 
@@ -250,30 +250,30 @@ I then ran the system with the debug printout of the first 400 bytes from each F
     97 01-14 17:00:47.071356   10320   10362   7            HDF5DataStore DBG write: data_store: Writing data with run number 333 and trigger number 42 and detector type TriggerRecordHeader and apa/link number 1 / 1
     98 01-14 17:00:47.071345   10320   10362   7            HDF5DataStore DBG openFileIfNeeded: data_store: Pointer file to  ./fake_minidaqapp_run000333_file0000.hdf5 was already opened with openFlags 17
     99 01-14 17:00:47.071284   10320   10362   7               DataWriter D10 do_work: datawriter: Popped the TriggerRecord for trigger number 42 off the input queue
-    100 01-14 17:00:47.071219   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 41/333 status: 1 / 2 Fragments
-    101 01-14 17:00:47.071175   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 42/333 status: 1 / 2 Fragments
-    102 01-14 17:00:47.071173   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 41/333 status: 1 / 2 Fragments
-    103 01-14 17:00:47.071148   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 41/333 status: 1 / 2 Fragments
-    104 01-14 17:00:47.070791   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 42 onto output queue :data_requests_1
-    105 01-14 17:00:47.070789   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 1: window_offset 1000: window_width 1200
-    106 01-14 17:00:47.070770   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 42: run_number 333: trig_timestamp 79759095205000000
-    107 01-14 17:00:47.070769   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
-    108 01-14 17:00:47.070768   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 42 onto output queue :data_requests_0
-    109 01-14 17:00:47.070766   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 0: window_offset 1000: window_width 1200
-    110 01-14 17:00:47.070765   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 42: run_number 333: trig_timestamp 79759095205000000
-    111 01-14 17:00:47.070764   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
-    112 01-14 17:00:47.070760   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the TriggerDecision for trigger number 42 onto the output queue
-    113 01-14 17:00:47.070760   10320   10367   0         RequestGenerator D10 do_work: rqg: Popped the TriggerDecision for trigger number 42 off the input queue
-    114 01-14 17:00:47.070739   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 41 onto output queue :data_requests_1
-    115 01-14 17:00:47.070737   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 1: window_offset 1000: window_width 1200
-    116 01-14 17:00:47.070736   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 41: run_number 333: trig_timestamp 79759095205000000
-    117 01-14 17:00:47.070735   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
-    118 01-14 17:00:47.070729   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 41 onto output queue :data_requests_0
-    119 01-14 17:00:47.070670   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 0: window_offset 1000: window_width 1200
-    120 01-14 17:00:47.070668   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 41: run_number 333: trig_timestamp 79759095205000000
-    121 01-14 17:00:47.070667   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
-    122 01-14 17:00:47.070650   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the TriggerDecision for trigger number 41 onto the output queue
-    123 01-14 17:00:47.070624   10320   10367   0         RequestGenerator D10 do_work: rqg: Popped the TriggerDecision for trigger number 41 off the input queue
+  100 01-14 17:00:47.071219   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 41/333 status: 1 / 2 Fragments
+  101 01-14 17:00:47.071175   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 42/333 status: 1 / 2 Fragments
+  102 01-14 17:00:47.071173   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 41/333 status: 1 / 2 Fragments
+  103 01-14 17:00:47.071148   10320   10365   3         FragmentReceiver D10 do_work: Trigger decision 41/333 status: 1 / 2 Fragments
+  104 01-14 17:00:47.070791   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 42 onto output queue :data_requests_1
+  105 01-14 17:00:47.070789   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 1: window_offset 1000: window_width 1200
+  106 01-14 17:00:47.070770   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 42: run_number 333: trig_timestamp 79759095205000000
+  107 01-14 17:00:47.070769   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
+  108 01-14 17:00:47.070768   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 42 onto output queue :data_requests_0
+  109 01-14 17:00:47.070766   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 0: window_offset 1000: window_width 1200
+  110 01-14 17:00:47.070765   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 42: run_number 333: trig_timestamp 79759095205000000
+  111 01-14 17:00:47.070764   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
+  112 01-14 17:00:47.070760   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the TriggerDecision for trigger number 42 onto the output queue
+  113 01-14 17:00:47.070760   10320   10367   0         RequestGenerator D10 do_work: rqg: Popped the TriggerDecision for trigger number 42 off the input queue
+  114 01-14 17:00:47.070739   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 41 onto output queue :data_requests_1
+  115 01-14 17:00:47.070737   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 1: window_offset 1000: window_width 1200
+  116 01-14 17:00:47.070736   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 41: run_number 333: trig_timestamp 79759095205000000
+  117 01-14 17:00:47.070735   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
+  118 01-14 17:00:47.070729   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the DataRequest from trigger number 41 onto output queue :data_requests_0
+  119 01-14 17:00:47.070670   10320   10367   0         RequestGenerator D10 do_work: rqg: apa_number 0: link_number 0: window_offset 1000: window_width 1200
+  120 01-14 17:00:47.070668   10320   10367   0         RequestGenerator D10 do_work: rqg: trig_number 41: run_number 333: trig_timestamp 79759095205000000
+  121 01-14 17:00:47.070667   10320   10367   0         RequestGenerator D10 do_work: rqg: trigDecision.components.size :2
+  122 01-14 17:00:47.070650   10320   10367   0         RequestGenerator D10 do_work: rqg: Pushing the TriggerDecision for trigger number 41 onto the output queue
+  123 01-14 17:00:47.070624   10320   10367   0         RequestGenerator D10 do_work: rqg: Popped the TriggerDecision for trigger number 41 off the input queue
  
 ```
 
@@ -293,13 +293,3 @@ This results in an expected Fragment payload size of 22,272 bytes for 1200 tick 
 
 See https://github.com/DUNE-DAQ/readout/issues/15 for details on this issue.
 </details>
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: John Freeman_
-
-_Date: Thu Mar 4 12:56:41 2021 -0600_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/minidaqapp/issues](https://github.com/DUNE-DAQ/minidaqapp/issues)_

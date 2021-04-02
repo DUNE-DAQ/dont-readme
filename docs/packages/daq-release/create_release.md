@@ -1,3 +1,4 @@
+# create_release
 # Creating a new DAQ release
 
 ## Overview
@@ -19,8 +20,8 @@ Here are the general steps of creating a new DAQ release.
     * modify `dbt-setttings.sh` (optional):
         * use `products` and `products_dev` in cvmfs directly (change `dune_products_dirs` list);
         * commenting out any DAQ packages (in `dune_daqpackages` list);
-        * update `dune_externals` with new versions of external UPS packages if necessary (assuming you already prepared the new version of external packages, if not, refer to [How-to-build-external-UPS-packages](make_ups_products.md)).
-    * modify `pyvenv_requirements.txt` with the updated list of required modules and versions (assuming any new modules or versions are already available in `pypi-repo` on cvmfs, otherwise, refer to [how-to-add-new-modules-to-pypi-repo](add_modules_to_pypi_repo.md) for instructions).
+        * update `dune_externals` with new versions of external UPS packages if necessary (assuming you already prepared the new version of external packages, if not, refer to [How-to-build-external-UPS-packages](https://github.com/DUNE-DAQ/daq-release/blob/develop/doc/make_ups_products.md)).
+    * modify `pyvenv_requirements.txt` with the updated list of required modules and versions (assuming any new modules or versions are already available in `pypi-repo` on cvmfs, otherwise, refer to [how-to-add-new-modules-to-pypi-repo](https://github.com/DUNE-DAQ/daq-release/blob/develop/doc/add_modules_to_pypi_repo.md) for instructions).
     * modify `dbt-build-order.cmake` (optional), if new DAQ packages will be included in the new release, modfiy this file to include them in the build-order list;
     * Come back later to modify `release_manifest.sh` once all preparation work are done, and new DAQ packages are available in cvmfs.
 
@@ -28,9 +29,8 @@ Here are the general steps of creating a new DAQ release.
 3. Build and package DAQ packages
     * checkout the desired version of `daq-buildtools`, and set up a working directory using the release configs created by the previous step;
     * checkout all DAQ packages into `sourcecode` and build them with `dbt-build.sh`;
-    * run [upsify-daq-packages script](https://github.com/DUNE-DAQ/daq-release/blob/develop/scripts/upsify-daq-pkgs.py) to make tarballs of the DAQ packages ([instructions](upsify_daq_packages.md);
-    * note that if a new tag of a package has been used, all the packages downstream of it in the build order list shall be rebuilt and deployed. For example, the `logging` package is the same in `dunedaq-v2.3.0` and `dunedaq-v2.4.0`, but its dependent package `ers` has been advanced to `v1.1.2`, the `logging` package should be checked out and rebuilt when preparing for `dunedaq-v2.4.0`. Since `logging v1_1_0` is already in the `products` area, and the newly built `logging` is differnt from it, we should advance the UPS version to `v1_1_0b`;
-    * publish the DAQ packages into cvmfs ([instructions](publish_to_cvmfs.md)).
+    * run [upsify-daq-packages script](https://github.com/DUNE-DAQ/daq-release/blob/develop/scripts/upsify-daq-pkgs.py) to make tarballs of the DAQ packages ([instructions](https://github.com/DUNE-DAQ/daq-release/blob/develop/doc/upsify_daq_packages.md);
+    * publish the DAQ packages into cvmfs ([instructions](https://github.com/DUNE-DAQ/daq-release/blob/develop/doc/publish_to_cvmfs.md)).
 
 
 4. Modify `dbt-setting.sh` to use the newly published DAQ packages in cvmfs, create a new working directory and run some integration tests;
@@ -49,14 +49,3 @@ Here are the general steps of creating a new DAQ release.
 
 
 10. Wait 24 hours, for any possible hotfixes, before making the release tag with the [release tagging script](https://github.com/DUNE-DAQ/daq-release/blob/develop/scripts/create-release-tag.sh).
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Pengfei Ding_
-
-_Date: Mon Mar 29 05:58:26 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-release/issues](https://github.com/DUNE-DAQ/daq-release/issues)_

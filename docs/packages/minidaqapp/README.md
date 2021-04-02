@@ -1,3 +1,4 @@
+# minidaqapp README
 # Home
 Welcome to the minidaqapp wiki!
 
@@ -41,14 +42,3 @@ To help people understand/remember where the various pieces of the MiniDAQApp ar
 
 
 * [Reminders about tests that we want to run](Reminders-about-tests-that-we-want-to-run.md)
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: John Freeman_
-
-_Date: Mon Mar 8 18:46:44 2021 -0600_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/minidaqapp/issues](https://github.com/DUNE-DAQ/minidaqapp/issues)_

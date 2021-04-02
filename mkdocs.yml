@@ -2,33 +2,31 @@ site_name: DUNE DAQ Software Documentation Home
 nav:
     - Home: README.md
     - Packages:
-       - daq-buildtools:
-          - About daq-buildtools: packages/daq-buildtools/README.md
-          - packages/daq-buildtools/Compiling-and-running.md
-       - daq-cmake:
-          - About daq-cmake: packages/daq-cmake/README.md
-          - packages/daq-cmake/CmakeFunctions.md
-          - packages/daq-cmake/Creating-a-new-package.md
-          - packages/daq-cmake/SchemaAndCodeGen.md
-       - daq-release:
-          - About daq-release: packages/daq-release/README.md
-          - packages/daq-release/add_modules_to_pypi_repo.md
-          - packages/daq-release/ci_github_action.md
-          - packages/daq-release/create_release.md
-          - packages/daq-release/development_workflow_gitflow.md
-          - packages/daq-release/make_ups_products.md
-          - packages/daq-release/publish_to_cvmfs.md
-          - packages/daq-release/slides.md
-          - packages/daq-release/standalone_daq_release.md
-          - packages/daq-release/upsify_daq_packages.md
-       - styleguide:
-          - About styleguide: packages/styleguide/README.md
        - appfwk:
-          - About appfwk: packages/appfwk/README.md
-          - packages/appfwk/DAQModules.md
-          - packages/appfwk/How-to-write-your-DAQModule.md
-          - packages/appfwk/Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v2.0.0.md
+          - How-to-write-your-DAQModule: packages/appfwk/How-to-write-your-DAQModule.md
+          - README: packages/appfwk/README.md
+          - Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v2.0.0: packages/appfwk/Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v2.0.0.md
        - cmdlib: packages/cmdlib/README.md
+       - daq-buildtools:
+          - README: packages/daq-buildtools/README.md
+          - Compiling-and-running: packages/daq-buildtools/Compiling-and-running.md
+       - daq-cmake:
+          - SchemaAndCodeGen: packages/daq-cmake/SchemaAndCodeGen.md
+          - README: packages/daq-cmake/README.md
+          - Creating-a-new-package-under-v2.3.0: packages/daq-cmake/Creating-a-new-package-under-v2.3.0.md
+          - CmakeFunctions: packages/daq-cmake/CmakeFunctions.md
+       - daqdemos: packages/daqdemos/README.md
+       - daq-release:
+          - development_workflow_gitflow: packages/daq-release/development_workflow_gitflow.md
+          - ci_github_action: packages/daq-release/ci_github_action.md
+          - README: packages/daq-release/README.md
+          - create_release: packages/daq-release/create_release.md
+          - upsify_daq_packages: packages/daq-release/upsify_daq_packages.md
+          - make_ups_products: packages/daq-release/make_ups_products.md
+          - slides: packages/daq-release/slides.md
+          - add_modules_to_pypi_repo: packages/daq-release/add_modules_to_pypi_repo.md
+          - publish_to_cvmfs: packages/daq-release/publish_to_cvmfs.md
+          - standalone_daq_release: packages/daq-release/standalone_daq_release.md
        - dataformats: packages/dataformats/README.md
        - dfmessages: packages/dfmessages/README.md
        - dfmodules: packages/dfmodules/README.md
@@ -37,22 +35,20 @@ nav:
        - listrev: packages/listrev/README.md
        - logging: packages/logging/README.md
        - minidaqapp:
-          - About minidaqapp: packages/minidaqapp/README.md
-          - packages/minidaqapp/Coordination-notes-for-v2.3.0-and-v2.4.0.md
-          - packages/minidaqapp/Instructions-for-setting-up-a-v2.4.0-development-environment.md
-          - packages/minidaqapp/MiniDAQApp-Diagrams.md
-          - packages/minidaqapp/Notes-from-meetings-and-discussions.md
-          - packages/minidaqapp/Reminders-about-tests-that-we-want-to-run.md
-          - packages/minidaqapp/Simple-instructions-for-running-the-app.md
+          - README: packages/minidaqapp/README.md
+          - Reminders-about-tests-that-we-want-to-run: packages/minidaqapp/Reminders-about-tests-that-we-want-to-run.md
+          - Coordination-notes-for-v2.3.0-and-v2.4.0: packages/minidaqapp/Coordination-notes-for-v2.3.0-and-v2.4.0.md
+          - Notes-from-meetings-and-discussions: packages/minidaqapp/Notes-from-meetings-and-discussions.md
+          - MiniDAQApp-Diagrams: packages/minidaqapp/MiniDAQApp-Diagrams.md
+          - Simple-instructions-for-running-the-app: packages/minidaqapp/Simple-instructions-for-running-the-app.md
+          - Instructions-for-setting-up-a-v2.4.0-development-environment: packages/minidaqapp/Instructions-for-setting-up-a-v2.4.0-development-environment.md
        - nwqueueadapters: packages/nwqueueadapters/README.md
        - opmonlib: packages/opmonlib/README.md
        - readout: packages/readout/README.md
        - restcmd: packages/restcmd/README.md
        - serialization: packages/serialization/README.md
+       - styleguide:
+          - README: packages/styleguide/README.md
        - trigemu: packages/trigemu/README.md
 
-theme: 
-   name: material
-   features:
-     - navigation.tabs
-     - navigation.instant
+theme: mkdocs

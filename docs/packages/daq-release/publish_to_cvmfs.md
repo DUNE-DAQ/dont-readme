@@ -1,3 +1,4 @@
+# publish_to_cvmfs
 # Publish files to cvmfs
 
 ## Staging area for DUNE DAQ's cvmfs repo
@@ -48,14 +49,3 @@ cvmfs_server ingest --delete <path/to/delete> dune.opensciencegrid.org
 
 
  
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Pengfei Ding_
-
-_Date: Sun Mar 28 14:43:51 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-release/issues](https://github.com/DUNE-DAQ/daq-release/issues)_

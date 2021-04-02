@@ -2,7 +2,7 @@
 This page contains a starting point to write a new DAQ Module compatible withe operation of the application framework. 
 
 # Code
-From the C++ point of view, DAQ modules are implementation of a [DAQ Module interface](DAQModules.md). 
+From the C++ point of view, DAQ modules are implementation of a [[DAQ Module interface|DAQModules]]. 
 That means that apart from the constructor (that receives a name) only one method has to be implemented: `init()`.  
 The function has to handle all those configuration items that are not supposed to be reconfigurable during the run. 
 Optionally it can configure all those variables that can be overridden during run time.
@@ -46,13 +46,3 @@ For example:
 ```CMake
 add_library(appfwk_DummyModule_duneDAQModule test/DummyModule.cpp)
 ```
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: John Freeman_
-
-_Date: Tue Mar 9 15:42:13 2021 -0600_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/appfwk/issues](https://github.com/DUNE-DAQ/appfwk/issues)_

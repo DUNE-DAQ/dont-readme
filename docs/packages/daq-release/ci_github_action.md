@@ -1,3 +1,4 @@
+# ci_github_action
 # Instructions on setting up CI using GitHub Action
 
 This is a placeholder for instructions on setting up CI using GitHub action.
@@ -35,14 +36,3 @@ Here is a [presentation](https://indico.fnal.gov/event/45266/contributions/19565
 The major work of Phase Two is to set up customized runner nodes running CentOS 7/8 and then test CI jobs both with and without containers.
 
 
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Pengfei Ding_
-
-_Date: Sun Mar 28 14:43:51 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-release/issues](https://github.com/DUNE-DAQ/daq-release/issues)_

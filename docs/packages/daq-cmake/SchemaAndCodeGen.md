@@ -1,3 +1,4 @@
+# SchemaAndCodeGen
 # Schema and Code generation
 
 `daq-cmake` supports for schema distribution and code generation with [moo](https://github.com/brettviren/moo/)
@@ -60,7 +61,7 @@ These are its key features:
 - One or more template files must be defined.
 - The path of the generated C++ headers is a combination of the schema path and the template name:  
   `mypkg.myschema` applied to `MyTemplate.hpp.j2` will result in `include/mypkg/myschema/MyTemplate.hpp.j2`.  
-    **NOTE** The schema filename is converted to lowercase
+  **NOTE** The schema filename is converted to lowercase
 - Templates are specified as `<template package>/<template name .j2>`. If `<template package>` is omitted, a moo template will be assumed. Othewise `daq_codegen` will search for the template file in `<template package>/<template name .j2>`
 
 
@@ -115,14 +116,3 @@ e.g. `schema/appfwk-cmd-schema.jsonnet` to `schema/appfwk/cmd.jsonnet`
 
 
 
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Alessandro Thea_
-
-_Date: Fri Feb 26 01:35:54 2021 +0100_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-cmake/issues](https://github.com/DUNE-DAQ/daq-cmake/issues)_

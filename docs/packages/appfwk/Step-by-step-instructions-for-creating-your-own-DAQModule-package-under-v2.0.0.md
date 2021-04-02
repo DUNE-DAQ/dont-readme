@@ -2,14 +2,14 @@
 [Under development]
 # Introduction
 
-This page is intended to provide a step-by-step guide to setting up a work area in which you create software *modules* that run within the DUNE DAQ software application framework (*appfwk*). These modules are often called _DAQModules_ since that is the C++ base class that they inherit from. If you are impatient to get started, you can jump to the [Step-by-step Instructions](Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v2.0.0.md) now.  
+This page is intended to provide a step-by-step guide to setting up a work area in which you create software *modules* that run within the DUNE DAQ software application framework (*appfwk*). These modules are often called _DAQModules_ since that is the C++ base class that they inherit from. If you are impatient to get started, you can jump to the [[Step-by-step Instructions|Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v2.0.0#step-by-step Installation instructions]] now.  
 New users should probably continue reading this introduction, though, to learn a little bit of background information.
 
 This page draws from, and references, several other Wiki pages in the *appfwk* repository.  Links to these pages are listed in the text in the relevant places, and they are a good source of additional information for interested readers.  Here are some of these references collected for you in one place on this page:
 
-* [Compiling and running the App Fwk](Compiling-and-running.md)
+* [[Compiling and running the App Fwk|Compiling-and-running]]
 
-* [Creating a new package](Creating-a-new-package-under-v1.2.1.md)
+* [[Creating a new package|Creating-a-new-package-under-v1.2.1]]
 
 and last, but certainly not least
 
@@ -22,7 +22,7 @@ As a refresher:
 
 * a *DAQProcess* contains one or more *DAQModules*
 
-* when multiple *DAQModules* are present within a *DAQProcess*, they communicate with each other via *Queues* (the diagrams that are included [later on this page](Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1.md) might help explain this)
+* when multiple *DAQModules* are present within a *DAQProcess*, they communicate with each other via *Queues* (the diagrams that are included [[later on this page|Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1#information-about-the-daqmodules-in-the-listrev-example]] might help explain this)
 
 * there are two classes that wrap *Queues* to provide the ability to push data onto the queue (*DAQSink*) or pull data from a queue (*DAQSource*). An individual *DAQModule* will only access one side of each *Queue*.  If the module pushes data onto the queue, it will use an instance of the *DAQSink* class (which wraps the desired *Queue*), and if the module pops data from the queue, it will use an instance of the *DAQSource* class.
 
@@ -48,34 +48,34 @@ Since DAQ Suite v2, the system has been enriched with automated generated code t
 # Step-by-step Installation instructions
 
 
-Instructions on setting up a work area in which you can create your new package can be found [here](Compiling-and-running.md). After you've created your own working area, for our purposes the first things to do is to add the packages your new package will depend on and compile them. Most likely your dependencies will include `appfwk` and `cmdlib` as per the installation instructions. 
+Instructions on setting up a work area in which you can create your new package can be found [[here|Compiling-and-running]]. After you've created your own working area, for our purposes the first things to do is to add the packages your new package will depend on and compile them. Most likely your dependencies will include `appfwk` and `cmdlib` as per the installation instructions. 
 For future reference we'll call your working area `WORK_DIR`, which is the directory that at this point should contain the following automatic generated sub-directories: `build`, `dbt-pyvenv`, `install`, `log` and `sourcecode`.
 
 
 <!-- 
-At this point, you could either check out the example DAQModule package, build it, and run the example application (recommended), or you could jump to [creating your own package](Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1.1.0.md).  
+At this point, you could either check out the example DAQModule package, build it, and run the example application (recommended), or you could jump to [[creating your own package|Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1.1.0#Create-your-own-software-package]].  
 These instructions will walk you through doing both, but of course you can skip to the latter by scrolling to the dedicated section.
 
 ## Install the example package
 
 
-Here are the steps for adding the *appfwk* Example package to your work area, building it, and running the example application... (For information on the *DAQModules* that are contained in the example application and how they interact, please see [this section](Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1.1.0.md) later on this page.)
+Here are the steps for adding the *appfwk* Example package to your work area, building it, and running the example application... (For information on the *DAQModules* that are contained in the example application and how they interact, please see [[this section|Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1.1.0#Information-about-the-DAQModules-in-the-listrev-example]] later on this page.)
 
 * `cd` into your work area directory (`WORK_DIR`), if you aren't there already
 
 * run the following command to clone the example package:
-    * `git clone https://github.com/DUNE-DAQ/listrev.git`
+  * `git clone https://github.com/DUNE-DAQ/listrev.git`
 
 * Make sure you're using v1.1.0
-    * `cd listrev; git checkout v1.1.0; cd ..`
+  * `cd listrev; git checkout v1.1.0; cd ..`
 
 * [if not already done in the current shell] set up the build environment for your work area
-    * `source ./setup_build_environment`
+  * `source ./setup_build_environment`
 
 * Build the listrev in your work area by running
-    * `./build_daq_software.sh --pkgname listrev`
+  * `./build_daq_software.sh --pkgname listrev`
 
-In order to run the example package follow the instruction in the [dedicated section](Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1.1.0.md).
+In order to run the example package follow the instruction in the [[dedicated section|Step-by-step-instructions-for-creating-your-own-DAQModule-package-under-v1.1.0#Running the example package]].
 
 -->
 
@@ -87,25 +87,25 @@ Here are the commands to create your own software package that depends on appfwk
 * create a new directory underneath `WORK_DIR` (we'll call this `YOUR_PKG_DIR`)
 
 * copy the `CMakeLists.txt` file from the example package into `YOUR_PKG_DIR` (you can fetch it from [here](https://github.com/DUNE-DAQ/listrev/blob/v1.1.0/CMakeLists.txt))
-    * edit this CMakeLists.txt file to change all of the instances of the string "listrev" to your package name
-    * (we'll do a couple more edits in a bit, but you can save and close this file now
+  * edit this CMakeLists.txt file to change all of the instances of the string "listrev" to your package name
+  * (we'll do a couple more edits in a bit, but you can save and close this file now
 
 * create a `src` directory underneath `YOUR_PKG_DIR`
 
 * copy one of the *DAQModules* from the example package into the `src` directory
-    * as an example, let's copy the RandomDataListGenerator *DAQModule* from the example package, along with the CommonIssues header file.  You can fetch these files from [here](https://github.com/DUNE-DAQ/listrev/blob/v1.1.0/src/RandomDataListGenerator.hpp), [here](https://github.com/DUNE-DAQ/listrev/blob/v1.1.0/src/RandomDataListGenerator.cpp), and [here](https://github.com/DUNE-DAQ/listrev/blob/v1.1.0/src/CommonIssues.hpp).
-    * change all instances of "listrev" and "LISTREV" in these files to your package name
+  * as an example, let's copy the RandomDataListGenerator *DAQModule* from the example package, along with the CommonIssues header file.  You can fetch these files from [here](https://github.com/DUNE-DAQ/listrev/blob/v1.1.0/src/RandomDataListGenerator.hpp), [here](https://github.com/DUNE-DAQ/listrev/blob/v1.1.0/src/RandomDataListGenerator.cpp), and [here](https://github.com/DUNE-DAQ/listrev/blob/v1.1.0/src/CommonIssues.hpp).
+  * change all instances of "listrev" and "LISTREV" in these files to your package name
 
 * edit `YOUR_PKG_DIR`/CMakeLists.txt to remove the ListReverser and ReversedListValidator add_library and target_link_libraries lines
-    * you should also comment out the `daq_point_build_to( test )`, `file(COPY test/list_reversal_app.json DESTINATION test)` and `daq_install(...` lines
+  * you should also comment out the `daq_point_build_to( test )`, `file(COPY test/list_reversal_app.json DESTINATION test)` and `daq_install(...` lines
 
 * `cd` to `WORK_DIR`
 
 * [if not already done in the current shell] set up the build environment for your work area
-    * `source ./setup_build_environment`
+  * `source ./setup_build_environment`
 
 * rebuild your package in your work area by running
-    * `./build_daq_software.sh --pkgname <your package name>`
+  * `./build_daq_software.sh --pkgname <your package name>`
 
 * at this point, you'll have a decent start on your own *DAQModule* package.  Of course, you'll need to rename and modify the `RandomDataListGenerator` *DAQModule* to do whatever you want your first *DAQModule* to do.  And, when you get the point of running your *DAQProcess* that uses your *DAQModule*(s), you'll need to create a JSON *process configuration* file to use for that, but hopefully the *listrev* example package will help.
 
@@ -124,7 +124,7 @@ Here are the commands to create your own software package that depends on appfwk
 ### How to create a command file
 
 ## How to write the C++ code of the DAQModule
-From the C++ point of view, DAQ modules are implementation of a [DAQ Module interface](DAQModules.md). 
+From the C++ point of view, DAQ modules are implementation of a [[DAQ Module interface|DAQModules]]. 
 That means that apart from the constructor (that receives a name) only one method has to be implemented: `init()`.  
 The function has to handle all those configuration items that are not supposed to be reconfigurable during the run. 
 Optionally it can configure all those variables that can be overridden during run time.
@@ -168,25 +168,25 @@ daq_add_plugin( DummyModule  duneDAQModule LINK_LIBRARIES ers::ers appfwk )
 Assuming you installed your software as described in the previous sections, these are the instructions to run the code:
 
 * set up the runtime environment setup script by running this command:
-    * `source ./setup_runtime_environment`
-    * please note that this needs to be done from `WORK_DIR`
+  * `source ./setup_runtime_environment`
+  * please note that this needs to be done from `WORK_DIR`
 
 * run the example application using the following command:
-    * `daq_application -c QueryResponseCommandFacility -j build/listrev/test/list_reversal_app.json`
+  * `daq_application -c QueryResponseCommandFacility -j build/listrev/test/list_reversal_app.json`
 
 * once the program is running, and you see the "Enter a command" prompt, you can type in commands like the following:
-    * `configure`
+  * `configure`
     * This command pretends to set the values of configurable parameters like the number of integers in each randomly generated list
-    * `start` 
+  * `start` 
     * This command is passed to the three *DAQModules* in a well-specified order (specified in the JSON *process configuration* file).  First, the *validator* is started, then the *reverser*, then the *generator*.  Once the *generator* is started, it begins creating lists of integers and passing them to the other two *DAQModules*.
     * On the console, you will see ERS LOG messages from each of the *DAQModules* saying that they started (so you can confirm that the start order is correct), and then you will see ERS DEBUG messages that tell you what each of the *DAQModules* is doing as they process the lists of integers.
-    * `stop`
+  * `stop`
     * This command stops the three *DAQModules*, in the reverse order that they were started (like the start order, the stop order is specified in the JSON *process config* file).  
     * You will need to type this command into the console a little blindly, since the ERS DEBUG messages will be printing to the console as the program runs.
     * After each of the three *DAQModules* has finished, they print an ERS INFO message to the console with a summary of what they accomplished.
-    * `unconfigure`
+  * `unconfigure`
     * This command pretends to tear-down whatever configuration was established in the configure step.
-    * `quit`
+  * `quit`
     * This command exits the program.
 
 ### Information about the *DAQModules* in the *listrev* example
@@ -249,20 +249,20 @@ In addition to ERS messages, there are TRACE messages in the *listrev* example c
 Users who are interested in seeing the TRACE messages from the *listrev* example code, or their own *DAQModules* when the time comes, can use the following steps:
 
 * before running the program, set the TRACE_FILE environmental variable to point to a file underneath your `WORK_DIR`
-    * `export TRACE_FILE=<WORK_DIR>/log/${USER}_dunedaq.trace`
+  * `export TRACE_FILE=<WORK_DIR>/log/${USER}_dunedaq.trace`
 
 * run the program
 
 * look at the TRACE levels that are enabled for each TRACE_NAME (TRACE_NAMEs are used to help identify which source file the messages were sent from)
-    * `tlvls`
+  * `tlvls`
 
 * enable the TRACE levels that you would like to see appear in the TRACE memory buffer with commands like the following:
-    * `tonM -n RandomDataListGenerator 10`
-    * `tonM -n RandomDataListGenerator 15`
+  * `tonM -n RandomDataListGenerator 10`
+  * `tonM -n RandomDataListGenerator 15`
 
 * view the messages in the TRACE memory buffer.  I appreciate seeing the timestamps in human-readable form, so I typically pipe the output of `tshow` to `tdelta` as shown here (both are provided by the TRACE package)
-    * `tshow | tdelta -ct 1 | more`
-    * Note that the messages from the TRACE buffer are displayed in reverse time order (most recent message first)
+  * `tshow | tdelta -ct 1 | more`
+  * Note that the messages from the TRACE buffer are displayed in reverse time order (most recent message first)
 
 This short introduction to TRACE only describes a small fraction of its capabilities, and interested users are encouraged to read the Quick Start guide, the User's Guide, and other documentation provided [here](https://cdcvs.fnal.gov/redmine/projects/trace/wiki).
 
@@ -275,25 +275,15 @@ In a fresh shell, here are the steps that you would use to run the Fanout exampl
 * `cd` to your `WORK_DIR`
 
 * run the following commands to set up the build and runtime environments:
-    * `source ./setup_build_environment`
-    * `source ./setup_runtime_environment`
+  * `source ./setup_build_environment`
+  * `source ./setup_runtime_environment`
 
 * run the following command to start the example:
-    * `build/appfwk/apps/daq_application -c QueryResponseCommandFacility -j appfwk/test/producer_consumer_dynamic_test.json`
+  * `build/appfwk/apps/daq_application -c QueryResponseCommandFacility -j appfwk/test/producer_consumer_dynamic_test.json`
 
 * enter commands like the following:
-    * `configure`
-    * `start`
-    * `stop`
-    * `quit`
+  * `configure`
+  * `start`
+  * `stop`
+  * `quit`
 -->
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: John Freeman_
-
-_Date: Tue Mar 9 15:42:13 2021 -0600_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/appfwk/issues](https://github.com/DUNE-DAQ/appfwk/issues)_

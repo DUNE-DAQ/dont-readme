@@ -1,3 +1,4 @@
+# add_modules_to_pypi_repo
 # Adding new modules to the Pypi-repo
 
 If you have `pip2pi` installed, you can simply do the following to add any modules from `pypi` or tarballs:
@@ -25,7 +26,7 @@ If you do not have `pip2pi` available, you can do the following to install it. N
 
 
 1. setup python3, skip this step if you already have access to it:
-    * `source /cvmfs/dune.opensciencegrid.org/dunedaq/DUNE/products/setup; setup python v3_8_3b`;
+    * `source /cvmfs/dune.opensciencegrid.org/dunedaq/DUNE/products/setup; seutp python v3_8_3b`;
 
 
 2. create and activate a virtual environment:
@@ -37,14 +38,3 @@ If you do not have `pip2pi` available, you can do the following to install it. N
     * `pip install https://github.com/dingp/pip2pi/archive/1.0.0.tar.gz`
 
 Now you should have access to `pip2pi` and `dir2pi` commands. Next time, you can simply activate the virtual env for accessing these tools.
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Pengfei Ding_
-
-_Date: Sun Mar 28 14:43:51 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-release/issues](https://github.com/DUNE-DAQ/daq-release/issues)_

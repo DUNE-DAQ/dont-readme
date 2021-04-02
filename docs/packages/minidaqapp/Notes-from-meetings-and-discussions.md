@@ -395,14 +395,3 @@ Phil gave a [nice presentation on our work on the MiniDAQApp](https://indico.fna
 
 
 1. We should remember to run tests in which the TriggerDecision asks for data that is no longer in the Upstream DAQ buffers, to verify tha this situation is gracefully handled.  This came out of a discussion about how the different time values in the TimeSync message are used.
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: John Freeman_
-
-_Date: Thu Mar 4 12:56:41 2021 -0600_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/minidaqapp/issues](https://github.com/DUNE-DAQ/minidaqapp/issues)_

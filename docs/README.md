@@ -1,23 +1,26 @@
 # DUNE DAQ Software Documentation Home
 
-There are four DUNE DAQ software packages which are used to aid
-developers in creating packages designed for the DAQ itself:
+To learn how to build an existing software package repo, take a look at the [daq-buildtools documentation](packages/daq-buildtools/README.md)
 
-To learn how to build an existing software package, read the [daq-buildtools documentation](packages/daq-buildtools/README.md)
+To learn how to create a new package or modify the build of an existing one, take a look at the [daq-cmake documentation](packages/daq-buildtools/README.md)
 
-To learn how to create a new package or modify the build of an existing one, read the [daq-cmake documentation](packages/daq-cmake/README.md)
+To learn about the standard development workflow, take a look [here](packages/daq-release/development_workflow_gitflow.md)
 
-To learn about the standard development workflow, read the [daq-release documentation](packages/daq-release/README.md), in particular [this page](https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-release/development_workflow_gitflow/)
+To learn about the C++ coding guidelines for DUNE DAQ package developers, go [here](packages/styleguide/README.md)
 
-To learn about the C++ coding guidelines which DUNE DAQ package developers should follow, read [the styleguide](packages/styleguide/README.md)
-
---------------
-
-For the other packages, please click on one of the links below. To learn how to edit a package's documentation, click [here](editing_package_documentation.md)
+To read the documentation for other packages, please click on one of the links below:
 
 [appfwk](packages/appfwk/README.md) _home of_ daq_application _and tools for writing DAQModules_
 
 [cmdlib](packages/cmdlib/README.md) _interfaces for commanded objects_
+
+[daq-buildtools](packages/daq-buildtools/README.md) _scripts to set up a DUNE DAQ package development area_
+
+[daq-cmake](packages/daq-cmake/README.md) _CMake functions needed for DUNE DAQ packages_
+
+[daqdemos](packages/daqdemos/README.md) _demo modules and examples for DAQ applications_
+
+[daq-release](packages/daq-release/README.md) _manifest files for DUNE DAQ releases_
 
 [dataformats](packages/dataformats/README.md) _raw data reinterpretation utilities_
 
@@ -47,9 +50,8 @@ For the other packages, please click on one of the links below. To learn how to 
 
 [serialization](packages/serialization/README.md) _utilities for C++ object serialization/deserialization_
 
+[styleguide](packages/styleguide/README.md) _C++ coding guidelines DUNE DAQ developers should follow_
+
 [trigemu](packages/trigemu/README.md) _trigger decision emulator for readout application tests_
 
-------
-
-_Mar-11-2021: For software coordinators only:_ [how to make edits to this webpage](how_to_make_edits.md)
 

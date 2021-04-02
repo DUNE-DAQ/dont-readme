@@ -1,3 +1,4 @@
+# make_ups_products
 # Steps to build UPS products
 
 The instructions below applies only to systems running CentOS 7 or Scientific Linux 7. For other platforms, please exercise these instructions inside the [dunedaq/sl7](https://hub.docker.com/repository/docker/dunedaq/sl7) docker image using the `latest` tag (`dunedaq/sl7:latest`).
@@ -117,10 +118,10 @@ Once finished running the script, your working directory will look like
 Script [get_scisoft_pkgs.sh](https://github.com/DUNE-DAQ/daq-release/blob/master/scripts/ups_build_scripts/get_scisoft_pkgs.sh) is provided in this repo under `scripts/ups_build_scripts`.
 
 This script contains four lists of packages and their corresponding URLs of prebuilt tarballs on SciSoft's web server:
-    * `PKGS_MINIMAL` is a minimal set of packages needed for build opt variant of UPS products of the DAQ develop release;
-    * `PKGS_DEBUG` includes additional packages/variants needed for the debug build;
-    * `PKGS_OLDER_VERSIONS` contains older versions of packages in DUNE DAQ's cvmfs repo;
-    * `PKGS_NEWER_VERSIONS` contains packages/versions which have not been used by any release, but are currently in cvmfs for developers to play with.
+  * `PKGS_MINIMAL` is a minimal set of packages needed for build opt variant of UPS products of the DAQ develop release;
+  * `PKGS_DEBUG` includes additional packages/variants needed for the debug build;
+  * `PKGS_OLDER_VERSIONS` contains older versions of packages in DUNE DAQ's cvmfs repo;
+  * `PKGS_NEWER_VERSIONS` contains packages/versions which have not been used by any release, but are currently in cvmfs for developers to play with.
 By default, the script will retrieve packages listed in `PKGS_MINIMAL` and unpack them under the current directory.
 
 
@@ -129,11 +130,11 @@ Before building DAQ's own UPS packages, it's recommended to run this script firs
 ### Build `folly` and its dependencies with `cetbuildtools`
 
 `folly` and its dependencies are set up to be built into UPS packages with `cetbuildtools` using recipes written in [`daq-externals`](https://github.com/DUNE-DAQ/daq-externals) for building [folly](https://github.com/facebook/folly). The dependencies are:
-    * [double-conversion](https://github.com/google/double-conversion)
-    * [fmt](https://github.com/fmtlib/fmt)
-    * [glog](https://github.com/google/glog)
-    * [googletest](https://github.com/google/googletest)
-    * [libevent](https://github.com/libevent/libevent)
+  * [double-conversion](https://github.com/google/double-conversion)
+  * [fmt](https://github.com/fmtlib/fmt)
+  * [glog](https://github.com/google/glog)
+  * [googletest](https://github.com/google/googletest)
+  * [libevent](https://github.com/libevent/libevent)
 
 Here are the steps to build these UPS products (using `fmt` as an example):
 
@@ -172,14 +173,3 @@ pushd $WORK_DIR/ers/v0_26_00c && ./build_ers.sh $WORK_DIR e19 prof tar && popd
 ## Publish tarballs to cvmfs
 
 You can follow the [cvmfs publishing guide](publish_to_cvmfs.md) to publish the tarball to DUNE DAQ's cvmfs repo.
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Pengfei Ding_
-
-_Date: Sun Mar 28 14:43:51 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-release/issues](https://github.com/DUNE-DAQ/daq-release/issues)_

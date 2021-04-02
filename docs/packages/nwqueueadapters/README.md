@@ -1,3 +1,4 @@
+# nwqueueadapters README
 # nwqueueadapters
 
 DUNE `DAQModule`s that connect `appfwk` queues to [IPM](https://github.com/DUNE-DAQ/ipm) network connections. Implementation is in the `QueueToNetwork` and `NetworkToQueue` classes ("QToN" and "NToQ" for short). The type that's held by the queue must be (de)serializable by the functions in [the DUNE DAQ serialization package](https://github.com/DUNE-DAQ/serialization). For each type you want to use, you also have to generate a plugin to be used by QToN or NToQ, as follows:
@@ -53,14 +54,3 @@ This requires a slightly more complicated configuration (we have to pass both "m
 
 3. One shared library file can service multiple classes (have the `makeQToN` function switch on `plugin_name`). This is potentially useful for `moo`-generated classes, where many classes may be generated from the same file
 
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Philip Rodrigues_
-
-_Date: Tue Feb 23 10:15:22 2021 +0000_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/nwqueueadapters/issues](https://github.com/DUNE-DAQ/nwqueueadapters/issues)_

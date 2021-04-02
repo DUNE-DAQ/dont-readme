@@ -1,3 +1,4 @@
+# ipm README
 # ipm
 Inter-Process Messaging
 
@@ -125,14 +126,3 @@ and the receiving process should look like:
 2020-Dec-30 15:01:32,252 DEBUG_0 [dunedaq::appfwk::FakeDataConsumerDAQModule::do_work(...) at /home/jcfree/daqbuild_v2.0.0_instructions/sourcecode/appfwk/test/plugins/FakeDataConsumerDAQModule.cpp:122] Received vector 8: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9} DAQModule: fdc
 ```
 Once you're satisfied with the result, you can terminate `daq_application` as you normally would. 
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Philip Rodrigues_
-
-_Date: Tue Jan 26 13:39:59 2021 +0000_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/ipm/issues](https://github.com/DUNE-DAQ/ipm/issues)_

@@ -1,3 +1,4 @@
+# ers README
 # Error Reporting Service (ERS)
 
 The Error Reporting System (ERS) software package provides a common API for error reporting
@@ -471,14 +472,3 @@ catch( ers::Issue & ex ) {
 }
 ~~~
 
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Alessandro Thea_
-
-_Date: Thu Feb 25 19:35:20 2021 +0100_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/ers/issues](https://github.com/DUNE-DAQ/ers/issues)_

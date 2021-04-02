@@ -1,3 +1,4 @@
+# upsify_daq_packages
 # How to make UPS products of currently built/installed DAQ packages
 
 A python3 script has been prepared for this purpose. It is [upsify-daq-pkgs.py](https://github.com/DUNE-DAQ/daq-release/blob/master/scripts/upsify-daq-pkgs.py).
@@ -43,14 +44,3 @@ A few things to note as of now (Nov 24, 2020):
 
 
 3. DAQ packages by default are built without `debug` options, and only on SL7 or CentOS 7.
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Pengfei Ding_
-
-_Date: Sun Mar 28 14:43:51 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-release/issues](https://github.com/DUNE-DAQ/daq-release/issues)_

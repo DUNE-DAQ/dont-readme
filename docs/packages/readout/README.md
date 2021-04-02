@@ -1,3 +1,4 @@
+# readout README
 # readout - Readout software and utilities 
 Appfwk DAQModules, utilities, and scripts for DUNE Upstream DAQ Readout Software.
 
@@ -35,14 +36,3 @@ To get the "tp_frames.bin" TP data:
 To test the fake raw WIB TP readout, run
 
     daq_application -c stdin://sourcecode/readout/test/tpenabled-fakereadout-commands.json
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Roland Sipos_
-
-_Date: Wed Feb 24 09:18:52 2021 +0100_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/readout/issues](https://github.com/DUNE-DAQ/readout/issues)_

@@ -251,14 +251,3 @@ To run the script:
 
 * For FragmentHeaders:  `python3 hdf5_dump.py -f sample.hdf5 -H`(dbt-pyvenv) [biery@mu2edaq13 minidaqapp.wiki]$ 
 -->
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: John Freeman_
-
-_Date: Mon Mar 8 18:09:24 2021 -0600_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/minidaqapp/issues](https://github.com/DUNE-DAQ/minidaqapp/issues)_

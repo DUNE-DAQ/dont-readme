@@ -1,3 +1,4 @@
+# development_workflow_gitflow
 # Development workflow
 
 We are following the [shared repository model](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-collaborative-development-models) and this [Git branching model](https://nvie.com/posts/a-successful-git-branching-model/) at the current stage of the DAQ software development. Under the `shared repository model`, developers are granted push access to a single shared repository. Topic branches are created when changes need to be made by following the `Git branching model`.
@@ -25,13 +26,13 @@ A team is usually managed by DAQ working group leaders. Developers obtain write 
 * Default branch: `develop`;
 
 * Short-lived branches:
-    * feature branches
+  * feature branches
     * branch off from `develop`,
     * merge back to `develop`;
-    * hotfix branches
+  * hotfix branches
     * branch off from `master`,
     * merge back to `develop` and `master`
-    * release branches
+  * release branches
     * branch off from `develop`,
     * merge back to `develop` and `master`
 
@@ -144,14 +145,3 @@ Package maintainers are the primary developers who make version tags of a packag
 ### View Network Graph
 
 ![network-graph](https://home.fnal.gov/~dingpf/network-graph.png)
-
------
-
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Pengfei Ding_
-
-_Date: Sun Mar 28 14:43:51 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/daq-release/issues](https://github.com/DUNE-DAQ/daq-release/issues)_
