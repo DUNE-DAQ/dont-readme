@@ -51,4 +51,5 @@ nav:
        - serialization: packages/serialization/README.md
        - trigemu: packages/trigemu/README.md
 
-theme: mkdocs
+theme: 
+   name: mkdocs
