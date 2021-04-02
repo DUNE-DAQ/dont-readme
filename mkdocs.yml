@@ -51,8 +51,4 @@ nav:
        - serialization: packages/serialization/README.md
        - trigemu: packages/trigemu/README.md
 
-theme: 
-   name: material
-   features:
-     - navigation.tabs
-     - navigation.instant
+theme: mkdocs
