@@ -19,7 +19,6 @@ TRACE provides:
 - a mechanism to configure the slow-path logging, i.e to use ERS as the slow-path logging.
 
 <details><summary>One of the ERS *destinations* for first 4 of the 6 loggings
-
 *streams* will be a "TRACE fast path destination."</summary>
 The Logging package setup function will ensure that the environment variables DUNEDAQ_ERS_{FATAL,ERROR,WARNING,INFO} (used to configure the stream destinations) will contain the "TRACE fast path destination." It is expected/required that all applications will call the Logging package setup function.</details>
 
@@ -30,23 +29,11 @@ Users will be able to use the Assertion Macros from ERS. They will also use macr
 For logging, the six ERS "streams" (fatal, error, warning, info, log and debug) will be accessed using
 the ers methods for the first 4 and TRACE macros for the last 2 as follow:
 
-
-
 1. ers::fatal( ers::Issue );
-
-
 2. ers::error( ers::Issue );
-
-
 3. ers::warning( ers::Issue );
-
-
 4. ers::info( ers::Issue );
-
-
 5. TLOG()       << ers::Issue or basic string/args
-
-
 6. TLOG_DEBUG(lvl)  << ers::Issue or basic string/args
 
 Conventions and best practices for ERS issues in the DUNE DAQ software can be found [here](ers-conventions.md).
@@ -97,15 +84,10 @@ the same value can be set in an interactive session on the same node to dynamica
 
 
 When the non-volatile (memory mapped trace file) configuration is active, several TRACE command-line functions can be used:
-
 * `tlvls` -- this command outputs a list of all the TRACE names that are currently known, and which levels are enabled for each name
-
 * `tonSg <level>` enables the specified level for *all* TRACE names (the "S" means Slow Path and the "g" means global in this context)
-
 * `tonS -n <TRACE NAME> <level>` enables the specified level for the specified TRACE name
-
 * `toffSg <level>` disables the specified level for *all* TRACE names
-
 * `toffS -n <TRACE NAME> <level>` disables the specified level for the specified TRACE name
 
 
@@ -149,17 +131,3 @@ The NFO lines below should/will be green with an actual show...
 
 
 
-
-
------
-
-<font size="1">
-_Last git commit to the markdown source of this page:_
-
-
-_Author: Ron Rechenmacher_
-
-_Date: Mon May 17 02:13:17 2021 -0500_
-
-_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/logging/issues](https://github.com/DUNE-DAQ/logging/issues)_
-</font>
