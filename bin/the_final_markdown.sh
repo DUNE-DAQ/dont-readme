@@ -112,8 +112,10 @@ for package in $package_list ; do
 
     # The master branch of nanorc has been used for development instead of the develop branch
     cd $tmpdir/$package
-    if ! [[ "$package" =~ "nanorc" ]]; then
+    if ! [[ "$package" =~ "logging" ]]; then
 	git checkout develop
+    else
+	git checkout kbiery/SmallDocChange
     fi
     echo $tmpdir/$package
 

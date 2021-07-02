@@ -108,3 +108,17 @@ Report an anomaly that is persistent and will likely not be solved without exter
 
 ### Fatal
 Report a major problem that does not allow the application to continue working (e.g. `DiskFull`, `NoMemoryLeft`). Note that issuing an `ers::fatal` does not necessarily terminate the application.
+
+
+-----
+
+<font size="1">
+_Last git commit to the markdown source of this page:_
+
+
+_Author: Philip Rodrigues_
+
+_Date: Mon Apr 19 14:26:54 2021 +0100_
+
+_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/logging/issues](https://github.com/DUNE-DAQ/logging/issues)_
+</font>

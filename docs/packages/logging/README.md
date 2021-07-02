@@ -6,20 +6,29 @@ The primary user documentation starting point for the DUNE fork of ERS is found 
 One link to TRACE information can be found [here](https://cdcvs.fnal.gov/redmine/projects/trace/wiki).
 
 ERS provides:
-- Assertion Macros
-- Macros for declaring Custom Issues
-- 6 logging streams and corresponding methods to work with (i.e. send to) them.
-- a mechanism to configure destination(s) for each of 6 loggings streams
+
+* Assertion Macros
+
+* Macros for declaring Custom Issues
+
+* 6 logging streams and corresponding methods to work with (i.e. send to) them.
+
+* a mechanism to configure destination(s) for each of 6 loggings streams
 
 ERS also provides Logging Macros, but these have been removed in the DUNE DAQ fork.
 
 TRACE provides:
-- several macros to implement stream-style logging to different logging levels.
-- slow and fast-path logging
-- a mechanism to configure the slow-path logging, i.e to use ERS as the slow-path logging.
 
-<details><summary>One of the ERS *destinations* for first 4 of the 6 loggings
-*streams* will be a "TRACE fast path destination."</summary>
+* several macros to implement stream-style logging to different logging levels.
+
+* slow and fast-path logging (where "fast" corresponds to a memory-mapped file and "slow" corresponds to the console, a disk file, or another slower destination)
+
+* a mechanism to configure the slow-path logging, i.e to use ERS as the slow-path logging.
+
+<details><summary>All messages that are sent to one of the ERS streams will also be sent to the TRACE fast path.</summary>
+This is achieved by specifying one of the ERS *destinations* for first 4 of the 6 loggings
+
+*streams* to be the "TRACE fast path destination."
 The Logging package setup function will ensure that the environment variables DUNEDAQ_ERS_{FATAL,ERROR,WARNING,INFO} (used to configure the stream destinations) will contain the "TRACE fast path destination." It is expected/required that all applications will call the Logging package setup function.</details>
 
 Only two of the TRACE logging macros (TLOG() and TLOG_DEBUG()) will be used and TRACE will be configured to use ERS for the slow-path logging.
@@ -29,11 +38,23 @@ Users will be able to use the Assertion Macros from ERS. They will also use macr
 For logging, the six ERS "streams" (fatal, error, warning, info, log and debug) will be accessed using
 the ers methods for the first 4 and TRACE macros for the last 2 as follow:
 
+
+
 1. ers::fatal( ers::Issue );
+
+
 2. ers::error( ers::Issue );
+
+
 3. ers::warning( ers::Issue );
+
+
 4. ers::info( ers::Issue );
+
+
 5. TLOG()       << ers::Issue or basic string/args
+
+
 6. TLOG_DEBUG(lvl)  << ers::Issue or basic string/args
 
 Conventions and best practices for ERS issues in the DUNE DAQ software can be found [here](ers-conventions.md).
@@ -84,10 +105,15 @@ the same value can be set in an interactive session on the same node to dynamica
 
 
 When the non-volatile (memory mapped trace file) configuration is active, several TRACE command-line functions can be used:
+
 * `tlvls` -- this command outputs a list of all the TRACE names that are currently known, and which levels are enabled for each name
+
 * `tonSg <level>` enables the specified level for *all* TRACE names (the "S" means Slow Path and the "g" means global in this context)
+
 * `tonS -n <TRACE NAME> <level>` enables the specified level for the specified TRACE name
+
 * `toffSg <level>` disables the specified level for *all* TRACE names
+
 * `toffS -n <TRACE NAME> <level>` disables the specified level for the specified TRACE name
 
 
@@ -131,3 +157,17 @@ The NFO lines below should/will be green with an actual show...
 
 
 
+
+
+-----
+
+<font size="1">
+_Last git commit to the markdown source of this page:_
+
+
+_Author: Kurt Biery_
+
+_Date: Thu Jul 1 15:12:20 2021 -0500_
+
+_If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/logging/issues](https://github.com/DUNE-DAQ/logging/issues)_
+</font>
