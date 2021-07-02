@@ -1,81 +1,222 @@
-site_name: DUNE DAQ Software Documentation Home
-nav:
-    - Home: README.md
-    - Packages:
-       - daq-buildtools:
-          - About daq-buildtools: packages/daq-buildtools/README.md
-       - daq-cmake:
-          - About daq-cmake: packages/daq-cmake/README.md
-       - daq-release:
-          - About daq-release: packages/daq-release/README.md
-          - packages/daq-release/add_modules_to_pypi_repo.md
-          - packages/daq-release/ci_github_action.md
-          - packages/daq-release/create_release.md
-          - packages/daq-release/development_workflow_gitflow.md
-          - packages/daq-release/make_ups_products.md
-          - packages/daq-release/publish_to_cvmfs.md
-          - packages/daq-release/slides.md
-          - packages/daq-release/standalone_daq_release.md
-          - packages/daq-release/upsify_daq_packages.md
-       - styleguide:
-          - About styleguide: packages/styleguide/README.md
-       - appfwk:
-          - About appfwk: packages/appfwk/README.md
-          - packages/appfwk/Daq-Application.md
-          - packages/appfwk/ThreadHelper-Usage-Notes.md
-       - cmdlib:
-          - About cmdlib: packages/cmdlib/README.md
-          - packages/cmdlib/Home.md
-          - packages/cmdlib/User-Guide.md
-       - dataformats:
-          - About dataformats: packages/dataformats/README.md
-          - packages/dataformats/ComponentRequestV0.md
-          - packages/dataformats/ComponentRequestV1.md
-          - packages/dataformats/FragmentHeaderV1.md
-          - packages/dataformats/FragmentHeaderV2.md
-          - packages/dataformats/GeoIDV0.md
-          - packages/dataformats/GeoIDV1.md
-          - packages/dataformats/TriggerRecordHeaderDataV1.md
-       - dfmessages:
-          - About dfmessages: packages/dfmessages/README.md
-       - dfmodules:
-          - About dfmodules: packages/dfmodules/README.md
-       - ers:
-          - About ers: packages/ers/README.md
-       - erses:
-          - About erses: packages/erses/README.md
-       - influxopmon:
-          - About influxopmon: packages/influxopmon/README.md
-       - ipm:
-          - About ipm: packages/ipm/README.md
-       - listrev:
-          - About listrev: packages/listrev/README.md
-       - logging:
-          - About logging: packages/logging/README.md
-          - packages/logging/ers-conventions.md
-       - minidaqapp:
-          - About minidaqapp: packages/minidaqapp/README.md
-          - packages/minidaqapp/MiniDAQApp-Diagrams.md
-          - packages/minidaqapp/Simple-instructions-for-running-the-app.md
-       - nanorc:
-          - About nanorc: packages/nanorc/README.md
-       - nwqueueadapters:
-          - About nwqueueadapters: packages/nwqueueadapters/README.md
-       - opmonlib:
-          - About opmonlib: packages/opmonlib/README.md
-          - packages/opmonlib/Instructions-for-DAQ-module-users.md
-       - readout:
-          - About readout: packages/readout/README.md
-          - packages/readout/Functional-elements.md
-       - restcmd:
-          - About restcmd: packages/restcmd/README.md
-       - serialization:
-          - About serialization: packages/serialization/README.md
-       - trigemu:
-          - About trigemu: packages/trigemu/README.md
+# Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
 
-theme: 
-   name: mkdocs
-   features:
-     - navigation.tabs
-     - navigation.instant
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+# Project information
+site_name: DUNE DAQ Software Documentation Home
+site_description: The Official Documentation for DUNE DAQ Software Users
+
+# Copyright
+copyright: Copyright &copy; 2016 - 2021 Martin Donath
+
+theme:
+  name: material
+  custom_dir: overrides
+  font: false
+
+  language: en
+
+  features:
+    - content.tabs.link
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    - navigation.top
+    - search.highlight
+    - search.share
+    - search.suggest
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      toggle:
+        icon: material/eye
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      toggle:
+        icon: material/eye-outline
+        name: Switch to light mode
+
+extra_javascript:
+  - javascripts/base.js
+  - javascripts/bootstrap.min.js
+  - javascripts/jquery-1.10.2.min.js
+
+# Plugins
+plugins:
+  - search
+
+# Customization
+extra:
+  generator: false
+  version:
+    provider: mike
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/DUNE-DAQ
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid-experimental
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+    - Table of Contents: 
+       - Overview:
+          - README.md
+       - Toolset:
+          - daq-buildtools:
+             - About daq-buildtools: packages/daq-buildtools/README.md
+          - daq-cmake:
+             - About daq-cmake: packages/daq-cmake/README.md
+          - daq-release:
+             - About daq-release: packages/daq-release/README.md
+             - packages/daq-release/add_modules_to_pypi_repo.md
+             - packages/daq-release/ci_github_action.md
+             - packages/daq-release/create_release.md
+             - packages/daq-release/development_workflow_gitflow.md
+             - packages/daq-release/make_ups_products.md
+             - packages/daq-release/publish_to_cvmfs.md
+             - packages/daq-release/slides.md
+             - packages/daq-release/standalone_daq_release.md
+             - packages/daq-release/upsify_daq_packages.md
+          - styleguide:
+             - About styleguide: packages/styleguide/README.md
+       - Core:   
+          - appfwk:
+             - About appfwk: packages/appfwk/README.md
+             - packages/appfwk/Daq-Application.md
+             - packages/appfwk/ThreadHelper-Usage-Notes.md
+          - cmdlib:
+             - About cmdlib: packages/cmdlib/README.md
+             - packages/cmdlib/Home.md
+             - packages/cmdlib/User-Guide.md
+          - ers:
+             - About ers: packages/ers/README.md
+          - logging:
+             - About logging: packages/logging/README.md
+             - packages/logging/ers-conventions.md
+       - Readout:
+          - dataformats:
+             - About dataformats: packages/dataformats/README.md
+             - packages/dataformats/ComponentRequestV0.md
+             - packages/dataformats/ComponentRequestV1.md
+             - packages/dataformats/FragmentHeaderV1.md
+             - packages/dataformats/FragmentHeaderV2.md
+             - packages/dataformats/GeoIDV0.md
+             - packages/dataformats/GeoIDV1.md
+             - packages/dataformats/TriggerRecordHeaderDataV1.md
+          - flxlibs:
+             - About flxlibs: packages/flxlibs/README.md
+             - packages/flxlibs/Checking-Debugging-Optical-Fibre-Status.md
+             - packages/flxlibs/Configure-the-FELIX-card.md
+             - packages/flxlibs/Enabling-links-through-software.md
+             - packages/flxlibs/FELIX-assets.md
+             - packages/flxlibs/FELIX-Software-Suite-hack.md
+             - packages/flxlibs/Initial-setup-of-FELIX.md
+             - packages/flxlibs/Local-driver.md
+             - packages/flxlibs/Using-fdaq.md
+          - readout:
+             - About readout: packages/readout/README.md
+             - packages/readout/Directory-structure.md
+       - Control:
+          - minidaqapp:
+             - About minidaqapp: packages/minidaqapp/README.md
+             - packages/minidaqapp/ConfigurationsForCasualUsers.md
+             - packages/minidaqapp/InstructionsForCasualUsers.md
+             - packages/minidaqapp/MiniDAQApp-Diagrams.md
+          - nanorc:
+             - About nanorc: packages/nanorc/README.md
+          - restcmd:
+             - About restcmd: packages/restcmd/README.md
+       - Dataflow (logical):
+          - dfmessages:
+             - About dfmessages: packages/dfmessages/README.md
+          - dfmodules:
+             - About dfmodules: packages/dfmodules/README.md
+          - timing:
+             - About timing: packages/timing/README.md
+          - timinglibs:
+             - About timinglibs: packages/timinglibs/README.md
+          - trigemu:
+             - About trigemu: packages/trigemu/README.md
+          - trigger:
+             - About trigger: packages/trigger/README.md
+             - packages/trigger/trigger-alg-howto.md
+       - Dataflow (physical):
+          - ipm:
+             - About ipm: packages/ipm/README.md
+          - nwqueueadapters:
+             - About nwqueueadapters: packages/nwqueueadapters/README.md
+          - serialization:
+             - About serialization: packages/serialization/README.md
+       - Monitoring:
+          - erses:
+             - About erses: packages/erses/README.md
+          - influxopmon:
+             - About influxopmon: packages/influxopmon/README.md
+          - opmonlib:
+             - About opmonlib: packages/opmonlib/README.md
+             - packages/opmonlib/Instructions-for-DAQ-module-users.md
+       - Educational:
+          - listrev:
+             - About listrev: packages/listrev/README.md
+
+
+

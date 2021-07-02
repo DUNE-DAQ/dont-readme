@@ -1211,9 +1211,11 @@ doubt, send an e-mail.
 
 ## 9.  Formatting 
 
+For proper formatting, process your code using the `dbt-clang-format.sh` script from the daq-buildtools package; see more on this in [the daq-buildtools documentation](https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-buildtools/) . Among other things, running the script will satisfy the following two rules:
+
  - Indentation should involve two spaces. Tabs should NOT be used.
  - Lines should (almost) always be less than 120 characters
- - Send your code through clang-format before committing, using the clang format file found in the configs/ subdirectory of daq-buildtools. Among other things, this file will enforce the indentation and line-length rules just described. 
+ 
 
 ## 10.  Exceptions to the Rules 
 
@@ -1240,7 +1242,7 @@ _Last git commit to the markdown source of this page:_
 
 _Author: jcfreeman2_
 
-_Date: Thu May 6 22:03:48 2021 -0500_
+_Date: Fri May 28 15:54:03 2021 -0500_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/styleguide/issues](https://github.com/DUNE-DAQ/styleguide/issues)_
 </font>

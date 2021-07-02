@@ -1,4 +1,4 @@
-# Introduction
+# GeoID v0 (Deprecated)
 
 This document describes the format of the GeoID struct, version 0 (unversioned).
 
@@ -51,7 +51,7 @@ _Last git commit to the markdown source of this page:_
 
 _Author: Eric Flumerfelt_
 
-_Date: Thu May 6 08:41:33 2021 -0500_
+_Date: Thu Jul 1 14:47:01 2021 -0500_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/dataformats/issues](https://github.com/DUNE-DAQ/dataformats/issues)_
 </font>

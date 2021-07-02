@@ -10,22 +10,12 @@ This tutorial assumes you run on a linux host with /cvmfs mounted, such as lxplu
 
 ### Setup
 
-First, set up a working area:
-
-```bash
-git clone https://github.com/DUNE-DAQ/daq-buildtools.git -b dunedaq-v2.4.0
-source daq-buildtools/dbt-setup-env.sh
-dbt-create.sh dunedaq-v2.4.0 nanorc-demo
-cd nanorc-demo/
-dbt-setup-runtime-environment
-```
-This part is subject to change, check [the daq-buildtools instructions](https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-buildtools/).
+First, set up a working area according to [the daq-buildtools instructions](https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-buildtools/).
 
 Next, install nanorc:
 
 ```bash
-git clone https://github.com/DUNE-DAQ/nanorc.git -b v1.0.0
-pip install -r nanorc/requirements.txt
+pip install https://github.com/DUNE-DAQ/nanorc/archive/refs/tags/<tag/branch>.tar.gz
 ```
 Get the example data file:
 
@@ -33,10 +23,10 @@ Get the example data file:
 curl https://cernbox.cern.ch/index.php/s/VAqNtn7bwuQtff3/download -o frames.bin
 ```
 
-Generate the default configuration:
+Generate a configuration:
 
 ```bash 
-python -m minidaqapp.nanorc.mdapp_gen mdapp_fake
+python -m minidaqapp.nanorc.mdapp_multiru_gen mdapp_fake
 ```
 
 Now you're ready to run.
@@ -141,9 +131,9 @@ python3 $DFMODULES_FQ_DIR/dfmodules/bin/hdf5dump/hdf5_dump.py -H -f swtest_run00
 _Last git commit to the markdown source of this page:_
 
 
-_Author: tapperad_
+_Author: Alessandro Thea_
 
-_Date: Thu May 13 17:54:05 2021 +0200_
+_Date: Thu May 27 15:06:14 2021 +0200_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/nanorc/issues](https://github.com/DUNE-DAQ/nanorc/issues)_
 </font>

@@ -1,21 +1,16 @@
 # MiniDAQApp Diagrams
-Here is a view of the MiniDAQApp based on the UpstreamDAQ-to-Dataflow interface diagram.  This view is intended to give a sense of which parts of the interaction between the UpstreamDAQ subsystem and the Dataflow subsystem will be covered by this app.  
+Here is a diagram of a simple system that is supported in dunedaq-v2.6.0.  It uses 'fake' sources to emulate the behavior of the FELIX and HSI electronics.  
 
-![MiniDAQApp view based on the UD-DF interfaces diagram](https://user-images.githubusercontent.com/36311946/102424947-e3f2ff80-3fd1-11eb-9422-202115c89219.png)
-
-
-***
-
-Here is a view of the Readout Scope internals.
-
-![MiniDAQApp Readout Scope internals](https://user-images.githubusercontent.com/36311946/102642852-ea918c00-4123-11eb-9333-be97c6b79cf2.png)
+![Overview](Simplev2.6System_Overview.png)
 
 
-***
+*** 
 
-Here is a view of the app with many 'real' modules included.
+Here is a diagram of a slightly different simple system that also uses emulators instead of real electronics.  This diagrams shows some of the internal details of the processes, especially the DAQModules and queues between them.
 
-![](https://user-images.githubusercontent.com/36311946/104197413-9dcf6700-53ea-11eb-84be-faec37d60fd9.png)
+![Some internal detail](Simplev2.6System_SomeDetail.png)
+
+
 
 -----
 
@@ -23,9 +18,9 @@ Here is a view of the app with many 'real' modules included.
 _Last git commit to the markdown source of this page:_
 
 
-_Author: John Freeman_
+_Author: bieryAtFnal_
 
-_Date: Thu Mar 4 12:56:41 2021 -0600_
+_Date: Wed May 26 14:58:35 2021 -0500_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/minidaqapp/issues](https://github.com/DUNE-DAQ/minidaqapp/issues)_
 </font>

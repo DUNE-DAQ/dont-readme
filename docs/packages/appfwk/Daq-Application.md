@@ -1,4 +1,4 @@
-# Introduction
+# DAQ Application
 
 `daq_application` is the main entry point for all _dunedaq_ processes that contain DAQModules and Queues. At program start, every `daq_application` instance only knows the basic information necessary for it to connect to Run Control and receive more information via the `init` and `conf` commands.
 
@@ -33,7 +33,7 @@ _Last git commit to the markdown source of this page:_
 
 _Author: Eric Flumerfelt_
 
-_Date: Tue Apr 20 13:18:22 2021 -0500_
+_Date: Thu Jul 1 14:43:01 2021 -0500_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/appfwk/issues](https://github.com/DUNE-DAQ/appfwk/issues)_
 </font>

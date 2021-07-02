@@ -7,7 +7,7 @@ here=$(cd $(dirname $(readlink -f ${BASH_SOURCE})) && pwd)
 # ...alphabetical, with the exception of the packages which are used
 # for package development themselves
 
-package_list="trigemu serialization restcmd readout rcif opmonlib nwqueueadapters nanorc minidaqapp logging listrev ipm influxopmon erses ers dfmodules dfmessages dataformats cmdlib appfwk styleguide daq-release daq-cmake daq-buildtools"
+package_list="trigger trigemu timinglibs timing serialization restcmd readout rcif opmonlib nwqueueadapters nanorc minidaqapp logging listrev ipm influxopmon flxlibs erses ers dfmodules dfmessages dataformats cmdlib appfwk styleguide daq-release daq-cmake daq-buildtools"
 
 mkdocs_yml="$here/../mkdocs.yml"
 
@@ -118,7 +118,6 @@ for package in $package_list ; do
     echo $tmpdir/$package
 
     if [[ -d $tmpdir/$package/docs/ && -n $(find $tmpdir/$package/docs -name "*.md" )  ]]; then
-	sed -r -i '/^\s*-\s*Packages\s*:.*/a \       - '$package':' $here/../mkdocs.yml
 	mkdir -p $packages_dir/$package
     else
 	echo "No docs/ subdirectory containing Markdown files found for $package; no documentation will be generated" >&2
@@ -145,7 +144,7 @@ for package in $package_list ; do
 	if [[ -n $( find  $packages_dir/$package -name "README.md" ) ]]; then
 	    mdfilelist="$packages_dir/$package/README.md"
 	fi
-	mdfilelist=$( find $packages_dir/$package -name "*.md" -not -name "README.md" | sort --reverse )" $mdfilelist"
+	mdfilelist=$( find $packages_dir/$package -name "*.md" -not -name "README.md" | sort --reverse --ignore-case )" $mdfilelist"
 
 	for mdfile in $mdfilelist; do
 	    massage $mdfile
@@ -155,9 +154,13 @@ for package in $package_list ; do
 	    if [ x"${pagename}" == "xREADME" ]; then
 		pagename=$( echo About ${package} )
 		echo "+===+++ ${package} ===== ${mdfile} ==== $pagename"
-		sed -r -i '/^\s*-\s*'$package'\s*:.*/a \          - '"$pagename"': '$mdfile_relative $here/../mkdocs.yml
+		if [[ -z $( sed -r -n '/^\s*-\s*'$package'\s*:.*/p' $here/../mkdocs.yml ) ]]; then
+		    echo "Error: package \"$package\" is meant to be handled by this script but isn't found in $here/../mkdocs.yml" >&2
+		    exit 3
+		fi
+		sed -r -i '/^\s*-\s*'$package'\s*:.*/a \             - '"$pagename"': '$mdfile_relative $here/../mkdocs.yml
 	    else
-		sed -r -i '/^\s*-\s*'$package'\s*:.*/a \          - '$mdfile_relative $here/../mkdocs.yml
+		sed -r -i '/^\s*-\s*'$package'\s*:.*/a \             - '$mdfile_relative $here/../mkdocs.yml
 	    fi
 
 	done

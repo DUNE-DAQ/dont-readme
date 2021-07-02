@@ -1,5 +1,10 @@
 # DUNE DAQ Software Documentation Home
 
+Welcome! The purpose of this website is to provide information on how to use the applications, plugins, base classes, etc. offered by the suite of DUNE DAQ packages. You can learn both how to run the DAQ as well as use various tools to extend its functionality. 
+
+If you're new to DUNE DAQ software, you'll want to start by reading the [daq-buildtools documentation](packages/daq-buildtools/README.md), which covers [how to set up a development environment](packages/daq-buildtools/README.md#Setup_of_daq-buildtools) and [build a package](packages/daq-buildtools/README.md#Cloning_and_building). Once you've done this, you'll likely want to learn about [how to write DAQ modules](packages/appfwk/README.md#Writing_DAQ_modules) in the [appfwk documentation](packages/appfwk/README.md), units of code which
+are meant to perform specific tasks and can be combined to define the overall behavior of a running DAQ application. At some point you may also need to learn about how to create a package from scratch by reading the [daq-cmake documentation](packages/daq-cmake/README.md); this documentation is also very useful for understanding how to get new source code files you've added to compile.  
+
 There are four DUNE DAQ software packages which are used to aid
 developers in creating packages designed for the DAQ itself:
 
@@ -13,62 +18,73 @@ To learn about the C++ coding guidelines which DUNE DAQ package developers shoul
 
 --------------
 
-For the other packages, please click on one of the links below. To learn how to edit a package's documentation, click [here](editing_package_documentation.md). Packages marked with a &#x2705; have completed documentation, &#x26A0; means the documentation is a work in progress, and &#x26D4; means documentation doesn't (yet) exist. 
+For the other packages, please click on one of the links below. To learn how to edit a package's documentation, click [here](editing_package_documentation.md). Packages marked with an asterix don't yet have any official documentation; please see their Issues page to remedy this. 
 
 ### Core
 
-&#x2705; [appfwk](packages/appfwk/README.md) _home of_ daq_application _and tools for writing DAQModules_
+[appfwk](packages/appfwk/README.md) _home of_ daq_application _and tools for writing DAQModules_
 
-&#x26A0; [cmdlib](packages/cmdlib/README.md) _interfaces for commanded objects_
+[cmdlib](packages/cmdlib/README.md) _interfaces for commanded objects_
 
-&#x2705; [ers](packages/ers/README.md) _fork of the ATLAS Error Reporting System_
+[ers](packages/ers/README.md) _fork of the ATLAS Error Reporting System_
 
-&#x2705; [logging](packages/logging/README.md) _contains the functions DUNE DAQ packages use to output text_
+[logging](packages/logging/README.md) _contains the functions DUNE DAQ packages use to output text_
 
 ### Readout
 
-&#x2705; [dataformats](packages/dataformats/README.md) _raw data reinterpretation utilities_
+[dataformats](packages/dataformats/README.md) _raw data reinterpretation utilities_
 
-&#x26A0; [readout](packages/readout/README.md) _upstream DAQ readout, DAQModules, CCM interface implementations_
+[flxlibs](packages/flxlibs/README.md) _DAQModules, utilities, and scripts for Upstream FELIX Readout Software_
+
+[readout](packages/readout/README.md) _upstream DAQ readout, DAQModules, CCM interface implementations_
 
 ### Control
 
-&#x26A0; [minidaqapp](packages/minidaqapp/README.md) _application to read out Felix data and store it in HDF5 files on disk_
+[minidaqapp](packages/minidaqapp/README.md) _application to read out Felix data and store it in HDF5 files on disk_
 
-&#x2705; [nanorc](packages/nanorc/README.md) _Not ANOther Run Control_
+[nanorc](packages/nanorc/README.md) _Not ANOther Run Control_
 
-&#x26D4; [rcif](packages/rcif/README.md) _run control related_
+[* rcif](packages/rcif/README.md) _run control related_
 
-&#x2705; [restcmd](packages/restcmd/README.md) _HTTP REST backend based CommandFacility_
+[restcmd](packages/restcmd/README.md) _HTTP REST backend based CommandFacility_
 
 ### Dataflow (logical)
 
-&#x2705; [dfmessages](packages/dfmessages/README.md) _dataflow messages_
+[dfmessages](packages/dfmessages/README.md) _dataflow messages_
 
-&#x2705; [dfmodules](packages/dfmodules/README.md) _dataflow applications_
+[dfmodules](packages/dfmodules/README.md) _dataflow applications_
 
-&#x26D4; [trigemu](packages/trigemu/README.md) _trigger decision emulator for readout application tests_
+[timing](packages/timing/README.md) _C++ interface to the timing firmware_
+
+[timinglibs](packages/timinglibs/README.md) _timing control and monitoring_
+
+[trigemu](packages/trigemu/README.md) _trigger decision emulator for readout application tests_
+
+[trigger](packages/trigger/README.md) _modules that make up the DUNE FD DAQ trigger system_
 
 ### Dataflow (physical)
 
-&#x2705; [ipm](packages/ipm/README.md) _message passing between processes_
+[ipm](packages/ipm/README.md) _message passing between processes_
 
-&#x2705; [nwqueueadapters](packages/nwqueueadapters/README.md) _DAQModules that connect appfwk queues to IPM network connections_
+[nwqueueadapters](packages/nwqueueadapters/README.md) _DAQModules that connect appfwk queues to IPM network connections_
 
-&#x2705; [serialization](packages/serialization/README.md) _utilities for C++ object serialization/deserialization_
+[serialization](packages/serialization/README.md) _utilities for C++ object serialization/deserialization_
 
 ### Monitoring
 
-&#x2705; [erses](packages/erses/README.md) _insert ERS messages into a searchable database_
+[erses](packages/erses/README.md) _insert ERS messages into a searchable database_
 
-&#x2705; [influxopmon](packages/influxopmon/README.md) _Influx database based plugin for operational monitoring_
+[influxopmon](packages/influxopmon/README.md) _Influx database based plugin for operational monitoring_
 
-&#x26A0; [opmonlib](packages/opmonlib/README.md) _operational monitoring library_
+[opmonlib](packages/opmonlib/README.md) _operational monitoring library_
+
+
 
 ### Educational
 
-&#x2705; [listrev](packages/listrev/README.md) _educational example of DAQModules for new developers_
+[listrev](packages/listrev/README.md) _educational example of DAQModules for new developers_
 
 ------
 
 _Mar-11-2021: For software coordinators only:_ [how to make edits to this webpage](how_to_make_edits.md)
+

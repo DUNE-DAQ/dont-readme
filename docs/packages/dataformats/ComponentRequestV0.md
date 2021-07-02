@@ -1,4 +1,4 @@
-# Introduction
+# ComponentRequest v0 (Deprecated)
 
 This document describes the format of the ComponentRequest struct, version 0 (unversioned).
 
@@ -49,7 +49,7 @@ _Last git commit to the markdown source of this page:_
 
 _Author: Eric Flumerfelt_
 
-_Date: Tue May 4 11:17:07 2021 -0500_
+_Date: Thu Jul 1 14:47:01 2021 -0500_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/dataformats/issues](https://github.com/DUNE-DAQ/dataformats/issues)_
 </font>

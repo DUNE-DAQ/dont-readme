@@ -1,4 +1,4 @@
-# Introduction
+# GeoID v1
 
 This document describes the format of the GeoID struct, version 1.
 
@@ -54,7 +54,7 @@ _Last git commit to the markdown source of this page:_
 
 _Author: Eric Flumerfelt_
 
-_Date: Fri May 14 13:43:11 2021 -0500_
+_Date: Thu Jul 1 14:47:01 2021 -0500_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/dataformats/issues](https://github.com/DUNE-DAQ/dataformats/issues)_
 </font>

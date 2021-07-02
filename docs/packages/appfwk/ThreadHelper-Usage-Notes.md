@@ -1,4 +1,4 @@
-# Introduction
+# About appfwk::ThreadHelper
 
 ThreadHelper defines a std::thread which runs the do_work() function as well as methods to start and stop that thread.
 It is intended to help reduce code duplication for the common task of starting and stopping threads.
@@ -27,7 +27,7 @@ _Last git commit to the markdown source of this page:_
 
 _Author: Eric Flumerfelt_
 
-_Date: Wed Apr 7 11:56:00 2021 -0500_
+_Date: Thu Jul 1 14:43:01 2021 -0500_
 
 _If you see a problem with the documentation on this page, please file an Issue at [https://github.com/DUNE-DAQ/appfwk/issues](https://github.com/DUNE-DAQ/appfwk/issues)_
 </font>
