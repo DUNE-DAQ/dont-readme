@@ -1,5 +1,17 @@
 #!/bin/bash
 
+if [[ -n $2 ]]; then
+    echo "Usage: "$( basename $0 )" (optional daq-release, even-minor-number - e.g., dunedaq-v2.4.0 or dunedaq-v2.6.0)" >&2
+    exit 1
+elif [[ -n $1 ]]; then
+    daq_release=$1
+
+    if ! [[ "$daq_release" =~ dunedaq-v[0-9].[02468].[0-9] ]]; then
+	echo "Error: the daq-release argument passed to this script should be of the form \"dunedaq-v<major number>.<even minor number>.<tweak number>\". Exiting..." >&2
+	exit 2
+    fi
+fi
+
 here=$(cd $(dirname $(readlink -f ${BASH_SOURCE})) && pwd)
 
 # Reverse alphabetical order so the packages in the drop-down menu will appear in regular alphabetical order
@@ -110,9 +122,48 @@ for package in $package_list ; do
 	exit 1
     fi
 
-    # The master branch of nanorc has been used for development instead of the develop branch
+
     cd $tmpdir/$package
-    if ! [[ "$package" =~ "nanorc" ]]; then
+
+    if [[ -n $daq_release ]]; then
+	
+	git checkout $daq_release
+
+	# If we don't (yet?) have a proper suite release tag for the
+	# repo, let's see what the manifest says its specific tag for
+	# the suite is
+
+	if [[ "$?" != 0 ]]; then
+
+	    if [[ ! -e $tmpdir/release_manifest.sh ]]; then
+		cd $tmpdir
+		curl -O https://raw.githubusercontent.com/DUNE-DAQ/daq-release/develop/configs/$daq_release/release_manifest.sh
+		if [[ "$?" != 0 ]]; then
+		    echo "Command curl -O https://raw.githubusercontent.com/DUNE-DAQ/daq-release/develop/configs/$daq_release/release_manifest.sh failed, exiting..." >&2
+		    exit 8
+		fi
+		
+		cd -
+	    fi
+
+	    package_with_underscores=$( echo $package | tr "-" "_" )
+	    package_tag=$( sed -r -n 's/\s*"'${package_with_underscores}'\s+(\S+).*/\1/p' $tmpdir/release_manifest.sh )
+	    
+	    if [[ -z $package_tag ]]; then
+		echo "Unable to determine git tag for $package corresponding to frozen release $daq_release; exiting..." >&2
+		exit 9
+	    fi
+
+	    package_tag_with_dots=$( echo $package_tag | tr "_" "." )
+	    git checkout $package_tag_with_dots
+
+	    if [[ "$?" != "0" ]]; then
+		echo "There was a problem calling \"git checkout $package_tag\"; exiting..." >&2
+		exit 6
+	    fi
+	fi
+
+    elif ! [[ "$package" =~ "nanorc" ]]; then  # The master branch of nanorc has been used for development instead of the develop branch
 	git checkout develop
     fi
     echo $tmpdir/$package
